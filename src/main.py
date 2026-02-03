@@ -5,10 +5,27 @@
 import sys
 import os
 
-# 添加src目录到Python路径
+# 将src目录添加到Python路径
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from experiments import MNISTExperiment
+# 修改导入方式
+# from experiments import MNISTExperiment  # 原来的相对导入
+
+# 改为直接导入
+try:
+    from src.experiments import MNISTExperiment
+except ImportError:
+    # 如果上述方式失败，尝试当前目录导入
+    try:
+        from experiments import MNISTExperiment
+    except ImportError as e:
+        print(f"导入错误: {e}")
+        print("正在尝试其他导入方式...")
+        # 添加当前目录到路径
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        sys.path.insert(0, current_dir)
+        from experiments import MNISTExperiment
 
 def main():
     """主函数"""
