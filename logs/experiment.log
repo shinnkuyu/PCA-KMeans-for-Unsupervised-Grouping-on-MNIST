@@ -1,0 +1,25 @@
+2026-02-03 19:20:41,719 - MNISTExperiment - INFO - 开始对比实验，PCA维度: [8, 16, 32]
+2026-02-03 19:20:41,719 - MNISTExperiment - INFO - 开始实验 1: PCA降维到8维
+2026-02-03 19:20:41,719 - MNISTExperiment - INFO - 加载MNIST数据集，取前20000个样本...
+2026-02-03 19:28:50,608 - MNISTExperiment - INFO - 数据加载完成，形状: (20000, 784)
+2026-02-03 19:28:51,794 - MNISTExperiment - INFO - PCA降维完成，累计解释方差比: 0.257
+2026-02-03 19:28:52,335 - MNISTExperiment - INFO - 实验 1 完成:
+2026-02-03 19:28:52,335 - MNISTExperiment - INFO -   总耗时: 490.61秒
+2026-02-03 19:28:52,335 - MNISTExperiment - INFO -   簇内误差: 1557061.38
+2026-02-03 19:28:52,335 - MNISTExperiment - INFO -   簇分布: [823, 2687, 2259, 734, 4154, 2594, 1958, 2719, 1086, 986]
+2026-02-03 19:28:53,732 - MNISTExperiment - INFO - 开始实验 2: PCA降维到16维
+2026-02-03 19:28:53,732 - MNISTExperiment - INFO - 加载MNIST数据集，取前20000个样本...
+2026-02-03 19:28:55,006 - MNISTExperiment - INFO - 数据加载完成，形状: (20000, 784)
+2026-02-03 19:28:55,380 - MNISTExperiment - INFO - PCA降维完成，累计解释方差比: 0.358
+2026-02-03 19:28:55,966 - MNISTExperiment - INFO - 实验 2 完成:
+2026-02-03 19:28:55,966 - MNISTExperiment - INFO -   总耗时: 2.23秒
+2026-02-03 19:28:55,966 - MNISTExperiment - INFO -   簇内误差: 2809207.25
+2026-02-03 19:28:55,966 - MNISTExperiment - INFO -   簇分布: [2862, 1949, 3812, 1983, 1162, 1241, 2104, 1284, 748, 2855]
+2026-02-03 19:28:57,401 - MNISTExperiment - INFO - 开始实验 3: PCA降维到32维
+2026-02-03 19:28:57,401 - MNISTExperiment - INFO - 加载MNIST数据集，取前20000个样本...
+2026-02-03 19:28:58,666 - MNISTExperiment - INFO - 数据加载完成，形状: (20000, 784)
+2026-02-03 19:28:59,864 - MNISTExperiment - INFO - PCA降维完成，累计解释方差比: 0.483
+2026-02-03 19:29:00,684 - MNISTExperiment - INFO - 实验 3 完成:
+2026-02-03 19:29:00,685 - MNISTExperiment - INFO -   总耗时: 3.28秒
+2026-02-03 19:29:00,685 - MNISTExperiment - INFO -   簇内误差: 4503944.50
+2026-02-03 19:29:00,685 - MNISTExperiment - INFO -   簇分布: [1230, 1287, 1982, 2941, 3737, 2116, 1908, 1137, 701, 2961]
