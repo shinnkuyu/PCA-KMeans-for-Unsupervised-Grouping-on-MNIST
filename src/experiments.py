@@ -4,7 +4,6 @@
 """
 import numpy as np
 import time
-import os
 from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
 from .utils import *
@@ -27,23 +26,6 @@ class MNISTExperiment:
         self.results = []
         self.logger = setup_logger('MNISTExperiment', 'results/logs/experiment.log')
         
-        # 创建必要的目录
-        self._create_directories()
-        
-    def _create_directories(self):
-        """创建所有必要的目录"""
-        directories = [
-            'models',
-            'results/logs',
-            'results/tables', 
-            'results/plots',
-            'results/data'
-        ]
-        
-        for directory in directories:
-            os.makedirs(directory, exist_ok=True)
-            self.logger.info(f"创建目录: {directory}")
-    
     def run_single_experiment(self, pca_dim, experiment_id=1):
         """
         运行单个实验
@@ -177,6 +159,9 @@ class MNISTExperiment:
         pca_dim = result['pca_dim']
         exp_id = result['experiment_id']
         
+        # 创建目录
+        os.makedirs('results/plots', exist_ok=True)
+        
         # 1. 可视化聚类样本
         fig1 = create_cluster_sample_grid(
             result['X_original'], 
@@ -203,8 +188,6 @@ class MNISTExperiment:
     
     def _plot_pca_variance(self, pca_model, pca_dim, exp_id):
         """绘制PCA解释方差图"""
-        import matplotlib.pyplot as plt
-        
         explained_variance = pca_model.explained_variance_ratio_
         cumulative_variance = np.cumsum(explained_variance)
         
@@ -237,8 +220,6 @@ class MNISTExperiment:
     
     def _plot_cluster_distribution(self, result, pca_dim, exp_id):
         """绘制簇分布图"""
-        import matplotlib.pyplot as plt
-        
         cluster_dist = result['cluster_distribution']
         
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
@@ -267,8 +248,6 @@ class MNISTExperiment:
     
     def _generate_comparison_analysis(self, results):
         """生成对比分析报告和图表"""
-        import matplotlib.pyplot as plt
-        
         # 创建对比数据表格
         comparison_table = []
         
@@ -296,8 +275,6 @@ class MNISTExperiment:
     
     def _create_comparison_visualizations(self, results):
         """创建对比可视化图表"""
-        import matplotlib.pyplot as plt
-        
         pca_dims = [r['pca_dim'] for r in results]
         
         # 1. 运行时间对比
@@ -362,8 +339,6 @@ class MNISTExperiment:
     
     def _generate_text_report(self, results):
         """生成文本报告"""
-        from datetime import datetime
-        
         report_lines = []
         
         report_lines.append("="*80)
